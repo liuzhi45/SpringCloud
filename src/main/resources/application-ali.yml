@@ -1,0 +1,63 @@
+server:
+    port: 8761
+    tomcat:
+      uri-encoding: UTF-8
+      basedir: /data/cloud/8761/log
+      accesslog:
+        directory: logs #创建日志文件的目录。可以相对于tomcat的基本目录或绝对
+        enabled: true #放置在日志文件名中的日期格式
+        file-date-format: .yyyy-MM-dd
+        #pattern: format #格式化访问日志
+        prefix: access_log #记录文件名前缀
+spring:
+    application:
+      name: userserver
+    profiles: ali
+    datasource:
+      url: 
+      username: 
+      password: 
+      driverClassName: 
+    jpa:
+      database: MYSQL
+      show-sql: true
+      hibernate:
+        ddl-auto: update
+        naming:
+          strategy: org.hibernate.cfg.ImprovedNamingStrategyproperties
+    redis:
+      port: 
+      host: 
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1
+        min-idle: 0
+#        password: ＃登录redis服务器的密码。
+eureka:
+    instance:
+      preferIpAddress: true
+      prefer-ip-address: true
+      ipAddress: 
+      ip-address: 
+    client:
+      serviceUrl:
+        defaultZone: 
+    server:
+      server.enable-self-preservation: false
+
+logging:
+    path: /data/cloud/8761/logs #日志路径目录
+    #exception-conversion-word: WEX #记录异常时使用的转换字
+    level:
+      org:
+        springframework: INFO
+      #mapper包日志级别设为DEBUG 可打印日志
+      com:
+        cloud:
+          study:
+            dao:
+              mapper: DEBUG
+              repositry: DEBUG
+              
+              
